@@ -14,12 +14,7 @@ function start(route, handle) {
         route(handle, pathname, response, request);
     }
 
-    const server = http.createServer(onRequest);
-
-    server.listen(8080, "0.0.0.0", () => {
-        const { address, port } = server.address();
-        console.log(`Server running at http://${address}:${port}`);
-    });
+    http.createServer(onRequest).listen(8080);
 }
 
 exports.start = start;
